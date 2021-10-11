@@ -20,6 +20,10 @@ sap.ui.define([
 
 		},
 
+		onReset: function (){
+			window.location.reload();
+		},
+
 		onUploadImage: function(){
 
 			//var oFileUploader = this.byId("imageUploader").files[0];

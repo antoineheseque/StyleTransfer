@@ -11,8 +11,8 @@
 		<pages>
 			<Page id="page" showHeader="true" title="Style Transfer Project" floatingFooter="true"
 		class="sapUiResponsivePadding--header sapUiResponsivePadding--content sapUiResponsivePadding--footer sapUiResponsivePadding--floatingFooter body header">
+				<Button class="sapUiTinyMarginBegin sapUiTinyMarginTop reset" text="Reset" icon="sap-icon://reset" press="onReset"/>
 				<VBox alignItems="Center" >
-					<!-- <VBox class="sapUiLargeMarginBeginEnd bckgForm" alignItems="Center"> -->
 						<OverflowToolbar>
 							<Title class="sapUiLargeMarginTopBottom" level="H5" text="Choose an image!" />
 						</OverflowToolbar>
