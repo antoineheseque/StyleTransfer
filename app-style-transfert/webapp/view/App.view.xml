@@ -1,0 +1,66 @@
+<mvc:View controllerName="Quickstart.controller.App" displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout"
+	xmlns:tnt="sap.tnt"
+	xmlns:u="sap.ui.unified"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+
+	<App id="app">
+		<pages>
+			<Page id="page" showHeader="true" title="Style Transfer Project" floatingFooter="true"
+		class="sapUiResponsivePadding--header sapUiResponsivePadding--content sapUiResponsivePadding--footer sapUiResponsivePadding--floatingFooter body">
+				<VBox alignItems="Center" >
+					<VBox class="sapUiLargeMarginBeginEnd bckgForm" alignItems="Center">
+						
+						<Title class="sapUiSmallMarginTopBottom" level="H5" text="Choose an image!" />
+							<u:FileUploader class="sapUiLargeMarginBeginEnd sapUiSmallMarginTopBottom" id="imageUploader" fileType="png,jpg" placeholder="Your local image" uploadComplete="handleUploadComplete" change="onUploadImage" typeMissmatch="handleTypeMissmatch"/>
+						<GenericTile id='imgTile'
+									visible = 'false'
+									class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+									backgroundImage=""
+									frameType="OneByOne">
+						</GenericTile>
+
+						<Title id='stylesTitle' visible='false' class="sapUiSmallMarginTopBottom" level="H5" text="Choose your style!" />
+
+						<GenericTile id='styles1'
+									imageDescription='Artiste 1'
+									visible='false'
+									class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+									backgroundImage="resources/imgmodels/1.jpg"
+									frameType="OneByOne">
+						</GenericTile>
+						<GenericTile id='styles2'
+									imageDescription='Artiste 2'
+									visible='false'
+									class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+									backgroundImage="resources/imgmodels/2.jpg"
+									frameType="OneByOne">
+						</GenericTile>
+						<GenericTile id='styles3'
+									imageDescription='Van Gogh'
+									visible='false'
+									class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+									backgroundImage="resources/imgmodels/Van_Gogh.jpg"
+									frameType="OneByOne">
+						</GenericTile>
+
+						<Button class="sapUiTinyMarginTopBottom" id="run" visible="false" text="Run"/>
+						<!-- <Button id="download" text="Download Image" visible="false"/> -->
+					
+					</VBox>
+				</VBox>
+				<footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+							<Title level="H5" text="By Antoine Hésèque, Jean-Charles Coudon, Alexis Soltysiak and Imane Choukhi" />
+						<ToolbarSpacer/>
+					</OverflowToolbar>
+				</footer>		
+			</Page>
+		</pages>
+	</App>
+
+</mvc:View>

@@ -1,0 +1,28 @@
+.body {
+    background-color: #FEDD00;
+    background-image : url("https://www.formica.com/fr-be/-/media/formica/emea/products/swatch-images/f7967/f7967-swatch.jpg?rev=c975d170e2c24e4382491951a0ed7cb1");
+}
+
+.bckgForm{
+    background-color: #a9eeb4!important;
+    margin-top: 15%;
+    opacity : 0.7;
+    border-radius: 20px;
+    padding : 5px;
+}
+.bckgForm:hover{
+    background-color: #a9eeb4!important;
+    opacity : 0.9;
+}
+
+.sapMBtnInner {
+    font-size: 1rem;
+    text-shadow: none!important;
+    color : #0e3b01!important;
+    background-color : #ecf56d!important;
+    border: .0625rem solid #ecf56d!important;
+    height: 2rem;
+    width: 10rem;
+}
+
+
