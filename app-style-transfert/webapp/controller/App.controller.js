@@ -24,15 +24,29 @@ sap.ui.define([
 			window.location.reload();
 		},
 
-		onUploadImage: function(){
+		onUploadImage: function(oEvent){
 
-			//var oFileUploader = this.byId("imageUploader").files[0];
-			//var sName = oFileUploader.mProperties.value;
+			// var file = oEvent.mParameters.files[0];
+			var pagePath = window.location.pathname;
+			var form_data = new FormData();
+			var file_data = oEvent.mParameters.files[0];
 
-			//jquery request to get response: 
-			//0 no  problem with file propreties
-			//1 problem 
-			//send directly image to process in php
+			form_data.append("file_name", file_data);
+
+			jQuery.ajax({
+                url: pagePath + "resources/img",
+                cache: false,
+                contentType: false,
+                processData: false,
+                async: false,
+                data: form_data,
+                type: 'post',
+                success: function(data) {
+                    // display image
+					var rep=data;
+                }
+
+			});
 
 			//set elements visble 
 			this.getView().byId('imgTile').setBackgroundImage('resources/img/chat.jpg');
