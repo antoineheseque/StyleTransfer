@@ -12,7 +12,7 @@
 			<Page id="page" showHeader="true" title="Style Transfer Project" floatingFooter="true"
 		class="sapUiResponsivePadding--header sapUiResponsivePadding--content sapUiResponsivePadding--footer sapUiResponsivePadding--floatingFooter body header">
 				<Button class="sapUiTinyMarginBegin sapUiTinyMarginTop reset" text="Reset" icon="sap-icon://reset" press="onReset"/>
-				<VBox alignItems="Center" >
+				<VBox id="choices" alignItems="Center" >
 						<OverflowToolbar>
 							<Title class="sapUiLargeMarginTopBottom" level="H5" text="Choose an image!" />
 						</OverflowToolbar>
@@ -62,17 +62,13 @@
 									press="onChangeArtist">
 						</GenericTile>
 						</HBox>
-						<!-- <GenericTile id='artistChoosen'
-									header=''
-									visible='false'
-									class="sapUiSmallMarginBegin sapUiTinyMarginTop"
-									mode="LineMode">
-						</GenericTile> -->
 						<Label class="sapUiSmallMarginTop" visible="false" id="artistChoosen" text=""/>
-						<Button class="sapUiLargeMarginTopBottom" id="run" visible="false" text="Go"/>
-						<!-- <Button id="download" text="Download Image" visible="false"/> -->
-					
-					<!-- </VBox> -->
+						<Button class="sapUiLargeMarginTopBottom" id="run" visible="false" text="Go" press="onProcess"/>
+						
+				</VBox>
+				<VBox id="after" visible="false" class="sapUiLargeMarginTopBottom" alignItems="Center" >
+					<Image id="processedImg" src="" width="100%" height="100%" />
+					<Button class="sapUiTinyMarginBegin sapUiTinyMarginTop download" text="Download" icon="sap-icon://download" press="onDownload"/>
 				</VBox>
 				<footer>
 					<OverflowToolbar>

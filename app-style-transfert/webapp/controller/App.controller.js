@@ -101,6 +101,22 @@ sap.ui.define([
 			MessageToast.show("The file type *." + oEvent.getParameter("fileType") +
 									" is not supported. Choose one of the following types: " +
 									aFileTypes.join(", "));
+		},
+
+		onProcess: function(){
+			this.getView().byId('choices').setVisible(false);			
+			this.getView().byId('processedImg').setSrc('resources/imgprocessed/processed.jpg');
+			this.getView().byId('after').setVisible(true);
+		},
+
+		onDownload: function(){
+			var img = this.getView().byId('processedImg').getSrc();
+			var link = document.createElement('a');
+			link.href = img;
+			link.download = 'ProcessedImg.jpg';
+			document.body.appendChild(link);
+			link.click();
+			document.body.removeChild(link);
 		}
 
 	});

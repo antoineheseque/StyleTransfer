@@ -42,6 +42,11 @@
     width: 7rem!important;
 }
 
+.download .sapMBtnInner {
+    height: 2.5rem!important;
+    width: 12rem!important;
+}
+
 .sapMBtnInner:hover{
     background-color : #F4BC61!important;
 }
