@@ -10,52 +10,74 @@
 	<App id="app">
 		<pages>
 			<Page id="page" showHeader="true" title="Style Transfer Project" floatingFooter="true"
-		class="sapUiResponsivePadding--header sapUiResponsivePadding--content sapUiResponsivePadding--footer sapUiResponsivePadding--floatingFooter body">
+		class="sapUiResponsivePadding--header sapUiResponsivePadding--content sapUiResponsivePadding--footer sapUiResponsivePadding--floatingFooter body header">
 				<VBox alignItems="Center" >
-					<VBox class="sapUiLargeMarginBeginEnd bckgForm" alignItems="Center">
+					<!-- <VBox class="sapUiLargeMarginBeginEnd bckgForm" alignItems="Center"> -->
+						<OverflowToolbar>
+							<Title class="sapUiLargeMarginTopBottom" level="H5" text="Choose an image!" />
+						</OverflowToolbar>
+
+						<u:FileUploader class="sapUiLargeMarginBeginEnd sapUiSmallMarginTopBottom" id="imageUploader" fileType="png,jpg" uploadComplete="handleUploadComplete" change="onUploadImage" typeMissmatch="handleTypeMissmatch"/>
 						
-						<Title class="sapUiSmallMarginTopBottom" level="H5" text="Choose an image!" />
-							<u:FileUploader class="sapUiLargeMarginBeginEnd sapUiSmallMarginTopBottom" id="imageUploader" fileType="png,jpg" placeholder="Your local image" uploadComplete="handleUploadComplete" change="onUploadImage" typeMissmatch="handleTypeMissmatch"/>
 						<GenericTile id='imgTile'
 									visible = 'false'
-									class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+									class="sapUiTinyMarginBegin sapUiTinyMarginTop sapUiSmallMarginBottom"
 									backgroundImage=""
 									frameType="OneByOne">
 						</GenericTile>
-
-						<Title id='stylesTitle' visible='false' class="sapUiSmallMarginTopBottom" level="H5" text="Choose your style!" />
-
+						<OverflowToolbar>
+							<Title id='stylesTitle' visible='false' class="sapUiSmallMarginTopBottom" level="H5" text="Choose your style!" />
+						</OverflowToolbar>
+						<HBox>
 						<GenericTile id='styles1'
-									imageDescription='Artiste 1'
+									imageDescription='Twilight by Hale Woodruff'
 									visible='false'
 									class="sapUiTinyMarginBegin sapUiTinyMarginTop"
 									backgroundImage="resources/imgmodels/1.jpg"
-									frameType="OneByOne">
+									frameType="Auto"
+									press="onSelectArtist">
 						</GenericTile>
 						<GenericTile id='styles2'
-									imageDescription='Artiste 2'
+									imageDescription='Por amor al arte by Julien Raynaud'
 									visible='false'
 									class="sapUiTinyMarginBegin sapUiTinyMarginTop"
 									backgroundImage="resources/imgmodels/2.jpg"
-									frameType="OneByOne">
+									frameType="Auto"
+									press="onSelectArtist">
 						</GenericTile>
 						<GenericTile id='styles3'
-									imageDescription='Van Gogh'
+									imageDescription='Nuit étoilée by Van Gogh'
 									visible='false'
 									class="sapUiTinyMarginBegin sapUiTinyMarginTop"
 									backgroundImage="resources/imgmodels/Van_Gogh.jpg"
-									frameType="OneByOne">
+									frameType="Auto"
+									press="onSelectArtist">
 						</GenericTile>
-
-						<Button class="sapUiTinyMarginTopBottom" id="run" visible="false" text="Run"/>
+						<GenericTile id='styleChoosen'
+									imageDescription=''
+									visible='false'
+									class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+									backgroundImage=""
+									frameType="OneByOne"
+									press="onChangeArtist">
+						</GenericTile>
+						</HBox>
+						<!-- <GenericTile id='artistChoosen'
+									header=''
+									visible='false'
+									class="sapUiSmallMarginBegin sapUiTinyMarginTop"
+									mode="LineMode">
+						</GenericTile> -->
+						<Label class="sapUiSmallMarginTop" visible="false" id="artistChoosen" text=""/>
+						<Button class="sapUiLargeMarginTopBottom" id="run" visible="false" text="Go"/>
 						<!-- <Button id="download" text="Download Image" visible="false"/> -->
 					
-					</VBox>
+					<!-- </VBox> -->
 				</VBox>
 				<footer>
 					<OverflowToolbar>
 						<ToolbarSpacer/>
-							<Title level="H5" text="By Antoine Hésèque, Jean-Charles Coudon, Alexis Soltysiak and Imane Choukhi" />
+							<Label class="footerText" text="By Antoine Hésèque, Jean-Charles Coudon, Alexis Soltysiak and Imane Choukhi" />
 						<ToolbarSpacer/>
 					</OverflowToolbar>
 				</footer>		

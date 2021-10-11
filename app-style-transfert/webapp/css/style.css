@@ -1,28 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
 .body {
-    background-color: #FEDD00;
-    background-image : url("https://www.formica.com/fr-be/-/media/formica/emea/products/swatch-images/f7967/f7967-swatch.jpg?rev=c975d170e2c24e4382491951a0ed7cb1");
+    /* background-color: #FEDD00; */
+    /* background-image : url("https://images.squarespace-cdn.com/content/v1/5214cc8ce4b0cf32b79df41e/1568467533117-CNDHVS863LZCKM5P6OWI/Green_Background_Green_Condom_Club.jpg"); */
+    background: #0A111F;
+    /* background: linear-gradient(90deg, rgb(59, 106, 140) 0%, rgb(69, 123, 157)); */
 }
 
-.bckgForm{
-    background-color: #a9eeb4!important;
-    margin-top: 15%;
-    opacity : 0.7;
-    border-radius: 20px;
-    padding : 5px;
+.sapMBarPH{
+    background-color: #FCA311;
 }
-.bckgForm:hover{
+
+.header .sapMTitle{
+    color: #f5f5f5 !important;
+    font-size: 1.2em !important;
+    font-family: 'Raleway' !important;
+}
+
+.content{
+    background-color: #a9eeb4!important;
+}
+.content:hover{
     background-color: #a9eeb4!important;
     opacity : 0.9;
 }
 
 .sapMBtnInner {
     font-size: 1rem;
+    font-weight: bold!important;
+    font-family: 'Raleway' !important;
     text-shadow: none!important;
-    color : #0e3b01!important;
-    background-color : #ecf56d!important;
-    border: .0625rem solid #ecf56d!important;
+    color : #f5f5f5!important;
+    background-color : #F7B446!important;
+    border: .0625rem solid #f5f5f5!important;
     height: 2rem;
     width: 10rem;
 }
 
+.sapMBtnInner:hover{
+    background-color : #F4BC61!important;
+}
+
+.sapMBtnInner:active{
+
+    background-color : #FAAC2C!important;
+}
+
+.footerText {
+    font-family: 'Raleway' !important;
+}
+
+.sapMLabel {
+    color: #f5f5f5 !important;
+    font-family: 'Raleway' !important;
+}
+
+.sapContrast.sapMIBar-CTX.sapMFooter-CTX, .sapContrast .sapMIBar-CTX.sapMFooter-CTX {
+    background-color : #FCA311!important;
+}
 

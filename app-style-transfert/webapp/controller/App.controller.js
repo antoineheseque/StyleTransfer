@@ -22,7 +22,7 @@ sap.ui.define([
 
 		onUploadImage: function(){
 
-			var oFileUploader = this.byId("imageUploader").files[0];
+			//var oFileUploader = this.byId("imageUploader").files[0];
 			//var sName = oFileUploader.mProperties.value;
 
 			//jquery request to get response: 
@@ -33,13 +33,50 @@ sap.ui.define([
 			//set elements visble 
 			this.getView().byId('imgTile').setBackgroundImage('resources/img/chat.jpg');
 			this.getView().byId('imgTile').setVisible(true);
-			this.getView().byId('imageUploader').setEnabled(false)
+			this.getView().byId('imageUploader').setVisible(false);
 			this.getView().byId('styles1').setVisible(true);
 			this.getView().byId('styles2').setVisible(true);
 			this.getView().byId('styles3').setVisible(true);
 			this.getView().byId('stylesTitle').setVisible(true);
-			this.getView().byId('run').setVisible(true);
 		},
+
+		onSelectArtist: function(oEvent){
+
+			var sSourceImg = oEvent.getSource().mProperties.backgroundImage;
+			var sArtist = oEvent.getSource().mProperties.imageDescription;
+
+			this.getView().byId('styles1').setVisible(false);
+			this.getView().byId('styles2').setVisible(false);
+			this.getView().byId('styles3').setVisible(false);
+			
+			this.getView().byId('styleChoosen').setBackgroundImage(sSourceImg);
+			this.getView().byId('styleChoosen').setImageDescription(sArtist);
+			this.getView().byId('styleChoosen').setVisible(true);
+			this.getView().byId('artistChoosen').setText(sArtist);
+			this.getView().byId('artistChoosen').setVisible(true);
+			this.getView().byId('run').setVisible(true);
+
+		},
+
+		onChangeArtist: function(){
+
+			this.getView().byId('styles1').setVisible(true);
+			this.getView().byId('styles2').setVisible(true);
+			this.getView().byId('styles3').setVisible(true);
+			this.getView().byId('stylesTitle').setVisible(true);
+
+			this.getView().byId('styleChoosen').setVisible(false);
+			this.getView().byId('artistChoosen').setVisible(false);
+			this.getView().byId('run').setVisible(false);
+
+		},
+
+		handleCloseButton: function (oEvent) {
+			// note: We don't need to chain to the _pPopover promise, since this event-handler
+			// is only called from within the loaded dialog itself.
+			this.byId("myPopover").close();
+		},
+
 
 		handleUploadComplete: function(oEvent) {
 			var sResponse = oEvent.getParameter("response"),
