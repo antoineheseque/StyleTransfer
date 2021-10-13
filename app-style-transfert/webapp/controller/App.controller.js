@@ -24,32 +24,71 @@ sap.ui.define([
 			window.location.reload();
 		},
 
-		onUploadImage: function(oEvent){
+		onUploadImage: function(){
 
 			// var file = oEvent.mParameters.files[0];
-			var pagePath = window.location.pathname;
-			var form_data = new FormData();
-			var file_data = oEvent.mParameters.files[0];
+			//var file_data = oEvent.mParameters.files[0];
+			//let photo = document.getElementById("image-file").files[0];
+			
+			// var photo = this.getView().byId('imageUploader');
+			//var pagePath = window.location.pathname;
+			// let formData = new FormData();
+			
+			// formData.append("photo_name", photo);
+			// fetch(pagePath+'resources/img', {method: "POST", body: formData});
+			//This code is used for uploading documents and images
 
-			form_data.append("file_name", file_data);
+			//var oFileUploader = this.getView().byId("imageUploader");
+			//oFileUploader.upload();
 
-			jQuery.ajax({
-                url: pagePath + "resources/img",
-                cache: false,
-                contentType: false,
-                processData: false,
-                async: false,
-                data: form_data,
-                type: 'post',
-                success: function(data) {
-                    // display image
-					var rep=data;
-                }
+			// var oFileUpload = this.getView().byId("imageUploader");
+			// var domRef = oFileUpload.getFocusDomRef();
+			// var file = domRef.files[0];
 
-			});
+			// jQuery.ajax({
+			// 	type: "POST",
+			// 	url: "/resources/php/Dispatcher.php",
+			// 	action: "process",
+			// 	data: file,
+			// 	success: function(data){
+			// 		console.log(data);
+			// 	}
+			// });
 
+
+			// var that = this;
+   
+   			//This code is used for uploading image or document file
+   
+			// this.fileName = file.name;
+			// this.fileType = file.type;
+   
+	 		// var reader = new FileReader();
+			// reader.onload = function (e) {
+
+   			// 	var vContent = e.currentTarget.result	 
+			// 	that.updateFile(that.fileName, that.fileType, vContent);
+			// }
+			// reader.readAsDataURL(file);
+
+
+			var filesId = this.getView().byId("imageUploader").sId + "-fu";
+			var files = document.getElementById(filesId).files;
+			var formData = new FormData();
+			var xhttp = new XMLHttpRequest();
+
+
+			formData.append("file", files[0]);
+
+			// Set POST method and ajax file path
+			xhttp.open("POST", "../webapp/resources/php/Dispatcher.php", true);
+
+			// Send request with data
+			xhttp.send(formData);
+
+			
 			//set elements visble 
-			this.getView().byId('imgTile').setBackgroundImage('resources/img/chat.jpg');
+			this.getView().byId('imgTile').setBackgroundImage('resources/img/'+files[0].name);
 			this.getView().byId('imgTile').setVisible(true);
 			this.getView().byId('imageUploader').setVisible(false);
 			this.getView().byId('styles1').setVisible(true);
@@ -97,8 +136,10 @@ sap.ui.define([
 
 
 		handleUploadComplete: function(oEvent) {
-			var sResponse = oEvent.getParameter("response"),
+			// var sResponse = oEvent.getParameter("response"),
+			var sResponse = oEvent.getParameter("status"),
 				iHttpStatusCode = parseInt(/\d{3}/.exec(sResponse)[0]),
+				
 				sMessage;
 
 			if (sResponse) {
@@ -118,7 +159,8 @@ sap.ui.define([
 		},
 
 		onProcess: function(){
-			this.getView().byId('choices').setVisible(false);			
+			this.getView().byId('choices').setVisible(false);
+			//change file name to processed img			
 			this.getView().byId('processedImg').setSrc('resources/imgprocessed/processed.jpg');
 			this.getView().byId('after').setVisible(true);
 		},
