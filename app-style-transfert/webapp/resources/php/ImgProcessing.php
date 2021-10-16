@@ -33,12 +33,7 @@ class Process{
             // echo json_encode($answer); 
             exit;
         }
-
-
-        /////IMG PROCESS/////
-
-        //$output = exec('D:Wampdata/www/Projet_M2_S1_IA/site_projet_ia_m2_s1/app-style-transfert/webapp/resources/php/pythonscript/process.py');
-        //echo $output;
+        
     }
 }
 

@@ -17,6 +17,11 @@ sap.ui.define([
 		 * Initialisation de l'application
 		 */
 		onInit: function () {
+		//delete saved input images 
+        jQuery.ajax({
+			type: "POST",
+			url: './resources/php/Delete.php'
+		  });
 
 		},
 
@@ -159,6 +164,15 @@ sap.ui.define([
 		},
 
 		onProcess: function(){
+
+			$.ajax({
+				type: "POST",
+				url: "./resources/python/process.py",
+				success: function(data){
+					var response = JSON.stringify(data);
+				}
+			});
+			
 			this.getView().byId('choices').setVisible(false);
 			//change file name to processed img			
 			this.getView().byId('processedImg').setSrc('resources/imgprocessed/processed.jpg');
