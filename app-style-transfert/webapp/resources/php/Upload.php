@@ -1,9 +1,5 @@
 <?php
 
-class Process{
-
-    static function processImg(){
-
         /////IMG UPLOAD/////
         
         if(isset($_FILES['file']['name'])){
@@ -29,12 +25,7 @@ class Process{
                 } 
             }
             
-            // $answer=[$filename,$response];
-            // echo json_encode($answer); 
             exit;
         }
-        
-    }
-}
 
 ?>

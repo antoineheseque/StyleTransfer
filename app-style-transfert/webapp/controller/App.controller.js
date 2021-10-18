@@ -17,11 +17,137 @@ sap.ui.define([
 		 * Initialisation de l'application
 		 */
 		onInit: function () {
-		//delete saved input images 
-        jQuery.ajax({
-			type: "POST",
-			url: './resources/php/Delete.php'
-		  });
+
+			//get artists infos by the API
+			let request = new XMLHttpRequest();
+
+			request.open('GET', 'https://style-transfer-isen.herokuapp.com/api/v1/artworks', true);
+			request.send();
+			request.onload = function () {
+
+				// var oData = request.responseText;
+				var oData = [
+					{
+						"id": "por-amor-al-arte",
+						"title": "Por amor al arte",
+						"artist": "Julien Raynaud",
+						"format": "jpg"
+					},
+					{
+						"id": "twilight",
+						"title": "Twilight",
+						"artist": "Hale Woodruff",
+						"format": "jpg"
+					},
+					{
+						"id": "nuit-etoilee",
+						"title": "Nuit étoilée",
+						"artist": "Van Gogh",
+						"format": "jpg"
+					},
+					{
+						"id": "guernica",
+						"title": "Guernica",
+						"artist": "Pablo Picasso",
+						"format": "png"
+					},
+					{
+						"id": "diptyque-marilyn",
+						"title": "Diptyque Marilyn",
+						"artist": "Andy Warhol",
+						"format": "png"
+					},
+					{
+						"id": "compliment",
+						"title": "Compliment",
+						"artist": "Frantisek Kupka",
+						"format": "png"
+					},
+					{
+						"id": "abstract",
+						"title": "Abstract",
+						"artist": "Unknown",
+						"format": "png"
+					},
+					{
+						"id": "the-great-wave-of-kanagawa",
+						"title": "The great wave of Kanagawa",
+						"artist": "Katsuki Hokusai",
+						"format": "png"
+					},
+					{
+						"id": "autoportrait-a-la-casquette",
+						"title": "Autoportrait à la casquette",
+						"artist": "André Derain",
+						"format": "png"
+					},
+					{
+						"id": "lestaque",
+						"title": "L'Estaque",
+						"artist": "André Derain",
+						"format": "png"
+					},
+					{
+						"id": "contemporain",
+						"title": "Contemporain",
+						"artist": "Unknown",
+						"format": "png"
+					},
+					{
+						"id": "lichtung",
+						"title": "Lichtung",
+						"artist": "Dagmar Vogt",
+						"format": "png"
+					},
+					{
+						"id": "vue-de-collioure",
+						"title": "Vue de Collioure",
+						"artist": "André Derain",
+						"format": "png"
+					},
+					{
+						"id": "lever-du-soleil",
+						"title": "Lever du soleil",
+						"artist": "Otto Dix",
+						"format": "png"
+					},
+					{
+						"id": "girly",
+						"title": "Girly",
+						"artist": "Jean-Nicolas Gaillard",
+						"format": "png"
+					},
+					{
+						"id": "color-talk",
+						"title": "Color talk",
+						"artist": "Picasso",
+						"format": "png"
+					},
+					{
+						"id": "sans-titre",
+						"title": "Sans titre",
+						"artist": "JonOne",
+						"format": "png"
+					}
+				]
+
+				//set visible false for each artwork
+				for(var i = 0; i < oData.length; i++){
+					oData[i].visible = false;
+				}
+				
+				var oModel = new JSONModel();
+				oModel.setData(oData);
+				this.getView().byId('artworks').setModel(oModel);
+				//alert(oData);
+
+			}.bind(this);	
+
+			//delete saved input image
+			jQuery.ajax({
+				type: "POST",
+				url: './resources/php/Delete.php'
+			});
 
 		},
 
@@ -30,52 +156,6 @@ sap.ui.define([
 		},
 
 		onUploadImage: function(){
-
-			// var file = oEvent.mParameters.files[0];
-			//var file_data = oEvent.mParameters.files[0];
-			//let photo = document.getElementById("image-file").files[0];
-			
-			// var photo = this.getView().byId('imageUploader');
-			//var pagePath = window.location.pathname;
-			// let formData = new FormData();
-			
-			// formData.append("photo_name", photo);
-			// fetch(pagePath+'resources/img', {method: "POST", body: formData});
-			//This code is used for uploading documents and images
-
-			//var oFileUploader = this.getView().byId("imageUploader");
-			//oFileUploader.upload();
-
-			// var oFileUpload = this.getView().byId("imageUploader");
-			// var domRef = oFileUpload.getFocusDomRef();
-			// var file = domRef.files[0];
-
-			// jQuery.ajax({
-			// 	type: "POST",
-			// 	url: "/resources/php/Dispatcher.php",
-			// 	action: "process",
-			// 	data: file,
-			// 	success: function(data){
-			// 		console.log(data);
-			// 	}
-			// });
-
-
-			// var that = this;
-   
-   			//This code is used for uploading image or document file
-   
-			// this.fileName = file.name;
-			// this.fileType = file.type;
-   
-	 		// var reader = new FileReader();
-			// reader.onload = function (e) {
-
-   			// 	var vContent = e.currentTarget.result	 
-			// 	that.updateFile(that.fileName, that.fileType, vContent);
-			// }
-			// reader.readAsDataURL(file);
-
 
 			var filesId = this.getView().byId("imageUploader").sId + "-fu";
 			var files = document.getElementById(filesId).files;
@@ -86,19 +166,24 @@ sap.ui.define([
 			formData.append("file", files[0]);
 
 			// Set POST method and ajax file path
-			xhttp.open("POST", "../webapp/resources/php/Dispatcher.php", true);
+			xhttp.open("POST", "../webapp/resources/php/Upload.php", true);
 
 			// Send request with data
 			xhttp.send(formData);
 
-			
 			//set elements visble 
 			this.getView().byId('imgTile').setBackgroundImage('resources/img/'+files[0].name);
 			this.getView().byId('imgTile').setVisible(true);
 			this.getView().byId('imageUploader').setVisible(false);
-			this.getView().byId('styles1').setVisible(true);
-			this.getView().byId('styles2').setVisible(true);
-			this.getView().byId('styles3').setVisible(true);
+
+			var oArtworks =  this.getView().byId('artworks').getModel().getData();
+			for(var i = 0; i < oArtworks.length; i++){
+				oArtworks[i].visible = true;
+			}
+			
+			var oModel = new JSONModel();
+			oModel.setData(oArtworks);
+			this.getView().byId('artworks').setModel(oModel);
 			this.getView().byId('stylesTitle').setVisible(true);
 		},
 
@@ -107,10 +192,14 @@ sap.ui.define([
 			var sSourceImg = oEvent.getSource().mProperties.backgroundImage;
 			var sArtist = oEvent.getSource().mProperties.imageDescription;
 
-			this.getView().byId('styles1').setVisible(false);
-			this.getView().byId('styles2').setVisible(false);
-			this.getView().byId('styles3').setVisible(false);
-			
+			var oArtworks =  this.getView().byId('artworks').getModel().getData();
+			for(var i = 0; i < oArtworks.length; i++){
+				oArtworks[i].visible = false;
+			}
+			var oModel = new JSONModel();
+			oModel.setData(oArtworks);
+			this.getView().byId('artworks').setModel(oModel);
+
 			this.getView().byId('styleChoosen').setBackgroundImage(sSourceImg);
 			this.getView().byId('styleChoosen').setImageDescription(sArtist);
 			this.getView().byId('styleChoosen').setVisible(true);
@@ -122,9 +211,14 @@ sap.ui.define([
 
 		onChangeArtist: function(){
 
-			this.getView().byId('styles1').setVisible(true);
-			this.getView().byId('styles2').setVisible(true);
-			this.getView().byId('styles3').setVisible(true);
+			var oArtworks =  this.getView().byId('artworks').getModel().getData();
+			for(var i = 0; i < oArtworks.length; i++){
+				oArtworks[i].visible = true;
+			}
+			var oModel = new JSONModel();
+			oModel.setData(oArtworks);
+			this.getView().byId('artworks').setModel(oModel);
+
 			this.getView().byId('stylesTitle').setVisible(true);
 
 			this.getView().byId('styleChoosen').setVisible(false);
@@ -172,6 +266,7 @@ sap.ui.define([
 					var response = JSON.stringify(data);
 				}
 			});
+			//
 			
 			this.getView().byId('choices').setVisible(false);
 			//change file name to processed img			

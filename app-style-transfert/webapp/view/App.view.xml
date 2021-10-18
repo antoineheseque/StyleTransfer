@@ -12,6 +12,7 @@
 			<Page id="page" showHeader="true" title="Style Transfer Project" floatingFooter="true"
 		class="sapUiResponsivePadding--header sapUiResponsivePadding--content sapUiResponsivePadding--footer sapUiResponsivePadding--floatingFooter body header">
 				<Button class="sapUiTinyMarginBegin sapUiTinyMarginTop reset" text="Reset" icon="sap-icon://reset" press="onReset"/>
+
 				<VBox id="choices" alignItems="Center" >
 						<OverflowToolbar>
 							<Title class="sapUiLargeMarginTopBottom" level="H5" text="Choose an image!" />
@@ -21,38 +22,40 @@
 						
 						<GenericTile id='imgTile'
 									visible = 'false'
-									class="sapUiTinyMarginBegin sapUiTinyMarginTop sapUiSmallMarginBottom"
+									class="sapUiTinyMarginBeginEnd sapUiTinyMarginTop sapUiSmallMarginBottom"
 									backgroundImage=""
 									frameType="OneByOne">
 						</GenericTile>
 						<OverflowToolbar>
 							<Title id='stylesTitle' visible='false' class="sapUiSmallMarginTopBottom" level="H5" text="Choose your style!" />
 						</OverflowToolbar>
-						<HBox>
-						<GenericTile id='styles1'
-									imageDescription='Twilight by Hale Woodruff'
-									visible='false'
-									class="sapUiTinyMarginBegin sapUiTinyMarginTop"
-									backgroundImage="resources/imgmodels/1.jpg"
-									frameType="Auto"
-									press="onSelectArtist">
-						</GenericTile>
-						<GenericTile id='styles2'
-									imageDescription='Por amor al arte by Julien Raynaud'
-									visible='false'
-									class="sapUiTinyMarginBegin sapUiTinyMarginTop"
-									backgroundImage="resources/imgmodels/2.jpg"
-									frameType="Auto"
-									press="onSelectArtist">
-						</GenericTile>
-						<GenericTile id='styles3'
-									imageDescription='Nuit étoilée by Van Gogh'
-									visible='false'
-									class="sapUiTinyMarginBegin sapUiTinyMarginTop"
-									backgroundImage="resources/imgmodels/Van_Gogh.jpg"
-									frameType="Auto"
-									press="onSelectArtist">
-						</GenericTile>
+
+						<VBox class="sapUiTinyMarginBeginEnd">
+							<!-- <ScrollContainer
+							id="artworks"
+							items="{/}"
+							height="100%"
+							width="100%"
+							horizontal="true"
+							focusable="true"> -->
+							<ScrollContainer id="scrollContainer" horizontal="true" vertical="true">
+								<FlexBox id="artworks" items="{/}" alignItems="Center" justifyContent="Center" width="80rem">
+								<items>
+									<GenericTile
+												imageDescription='{title} by {artist}'
+												visible='{visible}'
+												class="sapUiTinyMarginBegin sapUiTinyMarginTop"
+												backgroundImage="resources/imgmodels/{id}.{format}"
+												frameType="Auto"
+												press="onSelectArtist">
+									</GenericTile>
+								</items>
+								</FlexBox>
+							</ScrollContainer>
+							<!-- </ScrollContainer> -->
+								
+						</VBox>
+
 						<GenericTile id='styleChoosen'
 									imageDescription=''
 									visible='false'
@@ -61,7 +64,6 @@
 									frameType="OneByOne"
 									press="onChangeArtist">
 						</GenericTile>
-						</HBox>
 						<Label class="sapUiSmallMarginTop" visible="false" id="artistChoosen" text=""/>
 						<Button class="sapUiLargeMarginTopBottom" id="run" visible="false" text="Go" press="onProcess"/>
 						
