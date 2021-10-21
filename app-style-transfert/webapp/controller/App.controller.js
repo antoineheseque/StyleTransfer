@@ -88,7 +88,7 @@ sap.ui.define([
 						"title": "Autoportrait à la casquette",
 						"artist": "André Derain",
 						"format": "png",
-						"link": "https://lh3.googleusercontent.com/proxy/whhXIF0neCoPNZ3wWCbZYZ_bbqT3021_4c7Ray-mrdgPgahfmWMGMv0MlWU8onbqWm0F0S7O8OS_qOWZ-2p-NXSKdtdkR_IJmiv6meTRaxvCTyjiBbLG2NOXmQbl8IMP-w"
+						"link": "https://i.pinimg.com/originals/cd/a2/27/cda227bd429d7ea27bd47e3b18e9a0b4.jpg"
 					},
 					{
 						"id": "lestaque",
@@ -156,15 +156,8 @@ sap.ui.define([
 				var oModel = new JSONModel();
 				oModel.setData(oData);
 				this.getView().byId('artworks').setModel(oModel);
-				//alert(oData);
 
 			}.bind(this);	
-
-			//delete saved input image
-			jQuery.ajax({
-				type: "POST",
-				url: './resources/php/Delete.php'
-			});
 
 		},
 
@@ -179,7 +172,7 @@ sap.ui.define([
 				this.onUploadImage(url);
 			}else{
 				this.getView().byId("inputUrl").setValue("");
-				MessageToast.show("Invalid link!");
+				MessageToast.show("Invalid image link !");
 			}
 		},
 
@@ -188,25 +181,10 @@ sap.ui.define([
 		},
 
 		onUploadImage: function(url){
-
-			// var filesId = this.getView().byId("imageUploader").sId + "-fu";
-			// var files = document.getElementById(filesId).files;
-			// var formData = new FormData();
-			// var xhttp = new XMLHttpRequest();
-
-			// formData.append("file", files[0]);
-
-			// // Set POST method and ajax file path
-			// xhttp.open("POST", "../webapp/resources/php/Upload.php", true);
-
-			// // Send request with data
-			// xhttp.send(formData);
 			
-			//set elements visble 
 			this.getView().byId('imgTile').setBackgroundImage(url);
-			//this.getView().byId('imgTile').setBackgroundImage('resources/img/'+files[0].name);
 			this.getView().byId('imgTile').setVisible(true);
-			this.getView().byId('imageUploader').setVisible(false);
+			this.getView().byId('inputImgBox').setVisible(false);
 
 			var oArtworks =  this.getView().byId('artworks').getModel().getData();
 			for(var i = 0; i < oArtworks.length; i++){
@@ -290,7 +268,14 @@ sap.ui.define([
 									aFileTypes.join(", "));
 		},
 
-		onProcess: function(oEvent){
+		onProcess: function(){
+
+			this.getView().byId('busybox').setVisible(true);
+
+			setTimeout(function(){
+				this.getView().byId('busybox').setVisible(false);
+			}.bind(this), 5000);
+
 
 			var inputStyleLink = this.getView().byId('styleChoosen').getAriaLabel();
 			var inputImgLink = this.getView().byId('imgTile').getBackgroundImage();
@@ -305,27 +290,27 @@ sap.ui.define([
 						content: inputImgLink,
 						style: inputStyleLink,
 				});
-				console.log(resp);
 				this.getView().byId('processedImg').setSrc(resp.output_url);
 				this.getView().byId('after').setVisible(true);
 			}).bind(this)()
-			/////DEEPAI/////	
+			/////DEEPAI/////
 			
-			//change file name to processed img			
-			//this.getView().byId('processedImg').setSrc('resources/imgprocessed/processed.jpg');
-			//this.getView().byId('after').setVisible(true);
-			
-
 		},
 
 		onDownload: function(){
 			var img = this.getView().byId('processedImg').getSrc();
 			var link = document.createElement('a');
 			link.href = img;
-			link.download = 'ProcessedImg.jpg';
+			link.download = 'ProcessedImg.png';
 			document.body.appendChild(link);
 			link.click();
 			document.body.removeChild(link);
+
+		},
+
+		onLoad: function(){
+			MessageToast.show('yes');
+
 		}
 
 	});

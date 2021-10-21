@@ -44,6 +44,12 @@
     width: 7rem!important;
 }
 
+.validate .sapMBtnInner {
+    height: 2.5rem!important;
+    width: 4rem!important;
+    margin-top: -0.55rem!important;
+}
+
 .download .sapMBtnInner {
     height: 2.5rem!important;
     width: 12rem!important;
@@ -98,4 +104,8 @@ html.sap-desktop:not(.sapUiNativeScrollbars) ::-webkit-scrollbar {
     background-color: #EDD1A3!important;
     border-radius: 10px!important;
     height: 8px!important;
+}
+
+.sapMMessageToast{
+    background : #FAAC2C !important;
 }
