@@ -2,13 +2,15 @@
 
 .body {
     /* background-color: #FEDD00; */
-    /* background-image : url("https://images.squarespace-cdn.com/content/v1/5214cc8ce4b0cf32b79df41e/1568467533117-CNDHVS863LZCKM5P6OWI/Green_Background_Green_Condom_Club.jpg"); */
+    /* background-image : url("My Post.jpg"); */
     background: #0A111F;
     /* background: linear-gradient(90deg, rgb(59, 106, 140) 0%, rgb(69, 123, 157)); */
 }
 
 .sapMBarPH{
-    background-color: #FCA311;
+    /* background-color: #FCA311; */
+    background: rgb(255,63,0);
+    background: linear-gradient(90deg, rgba(255,63,0,1) 0%, rgba(252,117,17,1) 17%, rgba(252,163,17,1) 54%);
 }
 
 .header .sapMTitle{
@@ -66,7 +68,9 @@
 }
 
 .sapContrast.sapMIBar-CTX.sapMFooter-CTX, .sapContrast .sapMIBar-CTX.sapMFooter-CTX {
-    background-color : #FCA311!important;
+    /* background-color : #FCA311!important; */
+    background: rgb(255,63,0)!important;
+    background: linear-gradient(90deg, rgba(255,63,0,1) 0%, rgba(252,117,17,1) 17%, rgba(252,163,17,1) 54%)!important;
 }
 
 .sapMGT {
