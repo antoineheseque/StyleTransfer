@@ -1,14 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 .body {
-    /* background-color: #FEDD00; */
-    /* background-image : url("My Post.jpg"); */
     background: #0A111F;
-    /* background: linear-gradient(90deg, rgb(59, 106, 140) 0%, rgb(69, 123, 157)); */
 }
 
 .sapMBarPH{
-    /* background-color: #FCA311; */
     background: rgb(255,63,0);
     background: linear-gradient(90deg, rgba(255,63,0,1) 0%, rgba(252,117,17,1) 17%, rgba(252,163,17,1) 54%);
 }
@@ -29,7 +25,6 @@
 
 .sapMBtnInner {
     font-size: 1rem;
-    /* font-weight: bold!important; */
     font-family: 'Raleway' !important;
     text-shadow: none!important;
     color : #f5f5f5!important;
@@ -74,7 +69,6 @@
 }
 
 .sapContrast.sapMIBar-CTX.sapMFooter-CTX, .sapContrast .sapMIBar-CTX.sapMFooter-CTX {
-    /* background-color : #FCA311!important; */
     background: rgb(255,63,0)!important;
     background: linear-gradient(90deg, rgba(255,63,0,1) 0%, rgba(252,117,17,1) 17%, rgba(252,163,17,1) 54%)!important;
 }
@@ -109,3 +103,4 @@ html.sap-desktop:not(.sapUiNativeScrollbars) ::-webkit-scrollbar {
 .sapMMessageToast{
     background : #FAAC2C !important;
 }
+
