@@ -298,4 +298,4 @@ Nous pouvons voir que l'image synthétisée conserve le paysage et les objets de
 
 Nous avons vu dans un premier temps l'utilisation du site ainsi que les différences avec le code. Puis nous avons regardé ce quel réseau de neurone nous avons utilisé ainsi que la méthode qui a été entreprise. Pour finir nous avons regardé l'organisation du code, et effectuer les étapes dans l'ordre, de l'installation jusqu'à l'entrainement et enfin le résultat.
 
-On peut se demander dans quelle mesure ..
+On peut se demander dans quelle mesure pourrait on utiliser le style transfer sur des textes ou des poésies
