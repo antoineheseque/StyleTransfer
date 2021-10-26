@@ -25,8 +25,26 @@
 						<Title class="sapUiLargeMarginTopBottom" level="H5" text="Choose an image!" />
 					</OverflowToolbar>
 
+					<HBox id="inputBtnChoice" class="sapUiSmallMarginTop sapUiTinyMarginBeginEnd">
+						<Button class="sapUiLargeMarginEnd sapUiLargeMarginTop inputBtn" icon="sap-icon://insurance-house" text="Local" press="onInputLocal"/>
+						<Button class="inputBtn apUiLargeMarginBegin sapUiLargeMarginTop" icon="sap-icon://chain-link" text="URL" press="onInputURL"/>
+					</HBox>
+
+					<!-- input local img box -->
+					<u:FileUploader
+						class="sapUiSmallMarginTop"
+						visible="false"
+						id="fileUploader"
+						name="myFileUpload"
+						tooltip="Upload your file to the local server"
+						uploadComplete="handleUploadComplete"
+						change="handleValueChange"
+						typeMissmatch="handleTypeMissmatch"
+						fileType="png,jpg,jpeg"
+						placeholder="Choose a local image"/>
+
 					<!-- input url field box -->
-					<HBox id="inputImgBox" class="sapUiTinyMarginBeginEnd">
+					<HBox visible="false" id="inputImgBox" class="sapUiTinyMarginBeginEnd">
 						<Input
 							id="inputUrl"
 							type="Url"
@@ -36,6 +54,7 @@
 						<!-- validate input img url button -->
 						<Button class="validate sapUiTinyMarginBegin sapUiSmallMarginTop" icon="sap-icon://accept" press="onChooseImg"/>
 					</HBox>
+					<Text id='formatInfo' visible='false' class="infoText sapUiSmallMarginTop" text="Link extention must be .png, .jpeg or .jpg" />
 
 					<!-- display input img container -->
 					<GenericTile id='imgTile'

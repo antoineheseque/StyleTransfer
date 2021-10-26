@@ -153,6 +153,17 @@ sap.ui.define([
 
 		},
 
+		onInputLocal: function (){
+			this.getView().byId('inputBtnChoice').setVisible(false);
+			this.getView().byId('fileUploader').setVisible(true);
+		},
+
+		onInputURL: function(){
+			this.getView().byId('inputBtnChoice').setVisible(false);
+			this.getView().byId('inputImgBox').setVisible(true);
+			this.getView().byId('formatInfo').setVisible(true);
+		},
+
 		onChooseImg: function () {
 
 			//on validate input img url
