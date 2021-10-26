@@ -54,7 +54,7 @@
 						<!-- validate input img url button -->
 						<Button class="validate sapUiTinyMarginBegin sapUiSmallMarginTop" icon="sap-icon://accept" press="onChooseImg"/>
 					</HBox>
-					<Text id='formatInfo' visible='false' class="infoText sapUiSmallMarginTop" text="Link extention must be .png, .jpeg or .jpg" />
+					<Text id='formatInfo' visible='false' class="infoText sapUiTinyMarginTop" text="Link extention must be .png, .jpeg or .jpg" />
 
 					<!-- display input img container -->
 					<GenericTile id='imgTile'
