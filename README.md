@@ -12,7 +12,7 @@
 
 
 
-[Cliquer ici pour rejoindre le site](Lien site)
+[Cliquer ici pour rejoindre le site](https://style-transfer-front.herokuapp.com/)
 
 
 
@@ -184,7 +184,7 @@ Il faudra installer :
 
 1. **Torch** 
 2. **TorchVision** : afin d'acceder à des architectures de modèle.
-3. **PIL **: Une bibliothèque de traitement d'image.
+3. **PIL**: Une bibliothèque de traitement d'image.
 4. **Matplotlib** : Une bibliothèque complète permettant des visualisations.
 5. **d2l** : Une bibliothèque pour avoir un affichage dynamique.
 
