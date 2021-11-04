@@ -109,7 +109,7 @@ Nous avons mis l'image d'une tortue de mer dans la content image. Et nous souhai
 
 
 
-![image-20211023165942731](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20211023165942731.png)
+![alt text](https://github.com/imane-C/StyleTransfer/blob/main/images/4.png?raw=true)
 
 *<u>Dans l'image synthétisée de sortie, les coups de pinceau à l'huile de l'image de style sont appliqués, conduisant à des couleurs plus froides, tout en préservant la forme principale des objets dans l'image de contenu.</u>*
 
@@ -121,7 +121,7 @@ Effectivement le VGG-19 est un réseau de neurones convolutif de 19 couches de p
 
 Il contient 19 layer qui sont représenté ci-dessous .
 
-![VGG et Transfer Learning - datacorner par Benoit Cayla](https://www.datacorner.fr/wp-content/uploads/2021/03/vgg_1.jpg)
+![alt text](https://github.com/imane-C/StyleTransfer/blob/main/images/5.png?raw=true)
 
 
 
@@ -163,7 +163,7 @@ Enfin, lorsque l'apprentissage du modèle est terminé, nous sortons les paramè
 
 
 
-![img](https://cdn.discordapp.com/attachments/891968066613825577/901581695411695696/unknown.png)
+![alt text](https://github.com/imane-C/StyleTransfer/blob/main/images/6.png?raw=true)
 
 
 
