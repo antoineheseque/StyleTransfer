@@ -71,7 +71,7 @@ Vous êtes maintenant face à une page web. Afin de réaliser le Transfer de vot
 
 Maintenant que votre photo est chargée comme photo de base, vous pouvez sélectionner grâce au menu déroulant, le style du peintre que vous souhaitez. Nous avons essayé de proposer une variété de style différent, et d'autres vont encore être ajoutés !
 
-![img](https://cdn.discordapp.com/attachments/891968066613825577/901487988704440340/2.PNG)
+![alt text](https://github.com/imane-C/StyleTransfer/blob/main/images/2.png?raw=true)
 
 
 
@@ -81,7 +81,7 @@ Un chargement démarre ainsi et votre image est en train d'être créée ! Aprè
 
 
 
-![img](https://cdn.discordapp.com/attachments/891968066613825577/901488004869267486/5.PNG)
+![alt text](https://github.com/imane-C/StyleTransfer/blob/main/images/3.png?raw=true)
 
 
 
