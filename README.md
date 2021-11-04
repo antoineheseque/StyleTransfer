@@ -2,7 +2,7 @@
 
 *Alexis Soltysiak* 
 
-*Imane Chouhki*
+*Imane Choukhi*
 
 *Jean-Charles Coudon*
 
