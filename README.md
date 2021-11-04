@@ -66,9 +66,10 @@ Afin de rejoindre le site, cliquez sur ce lien  : [Style Transfer](https://style
 
 Vous êtes maintenant face à une page web. Afin de réaliser le Transfer de votre image, il vous suffit de mettre le lien de l'image que vous souhaitez. La taille de l'image et le format seront vérifiés par notre algorithme. 
 
-![img](../images/1.PNG)
 
-
+<div align="center">
+    <img src=".github/images/.png" width="70%">
+</div>
 
 Maintenant que votre photo est chargée comme photo de base, vous pouvez sélectionner grâce au menu déroulant, le style du peintre que vous souhaitez. Nous avons essayé de proposer une variété de style différent, et d'autres vont encore être ajoutés !
 
