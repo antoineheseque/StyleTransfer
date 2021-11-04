@@ -68,7 +68,7 @@ Vous êtes maintenant face à une page web. Afin de réaliser le Transfer de vot
 
 
 <div align="center">
-    <img src=".github/images/.png" width="70%">
+    <img src="images/.png" width="70%">
 </div>
 
 Maintenant que votre photo est chargée comme photo de base, vous pouvez sélectionner grâce au menu déroulant, le style du peintre que vous souhaitez. Nous avons essayé de proposer une variété de style différent, et d'autres vont encore être ajoutés !
