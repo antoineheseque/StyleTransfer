@@ -66,7 +66,7 @@ Afin de rejoindre le site, cliquez sur ce lien  : [Style Transfer](https://style
 
 Vous êtes maintenant face à une page web. Afin de réaliser le Transfer de votre image, il vous suffit de mettre le lien de l'image que vous souhaitez. La taille de l'image et le format seront vérifiés par notre algorithme. 
 
-![img](https://cdn.discordapp.com/attachments/891968066613825577/901487971092529212/1.PNG)
+![img](images/1.PNG)
 
 
 
